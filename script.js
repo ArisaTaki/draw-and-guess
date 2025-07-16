@@ -256,6 +256,7 @@ const elements = {
   targetWord: document.getElementById("target-word"),
   wordLength: document.getElementById("word-length"),
   hideWordButton: document.getElementById("hide-word"),
+  endEarlyButton: document.getElementById("end-early"),
   countdownTimer: document.getElementById("countdown-timer"),
   finalAnswer: document.getElementById("final-answer"),
   finalTheme: document.getElementById("final-theme"),
@@ -416,6 +417,22 @@ function hideWord() {
   showMessage("词语已隐藏，游戏正式开始！", "success");
 }
 
+// 提前结束游戏
+function endGameEarly() {
+  console.log("用户提前结束游戏");
+
+  if (!gameState.isGameActive) {
+    showMessage("游戏尚未开始或已经结束", "warning");
+    return;
+  }
+
+  // 确认对话框
+  if (confirm("确定要提前结束游戏吗？\n结束后将显示正确答案。")) {
+    showMessage("游戏提前结束，正确答案已公布", "success");
+    endGame();
+  }
+}
+
 // 开始倒计时
 function startCountdown() {
   gameState.isGameActive = true;
@@ -526,6 +543,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // 游戏界面事件
   elements.hideWordButton.addEventListener("click", hideWord);
+  elements.endEarlyButton.addEventListener("click", endGameEarly);
 
   // 结束界面事件
   elements.restartButton.addEventListener("click", restartGame);
