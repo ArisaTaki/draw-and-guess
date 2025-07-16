@@ -499,8 +499,248 @@ body {
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
-/* iPad mini 响应式适配 */
-@media screen and (max-width: 1024px) {
+/* iPad 专门适配 - 精确设备检测 */
+
+/* iPad mini (768px-1024px) 竖屏优化 */
+@media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  body {
+    padding: 20px;
+  }
+
+  .game-container {
+    max-width: 700px;
+  }
+
+  .setup-content,
+  .game-content,
+  .end-content {
+    padding: 35px;
+    max-width: 600px;
+  }
+
+  .game-title,
+  .end-title {
+    font-size: 2.4rem;
+    margin-bottom: 35px;
+  }
+
+  .target-word {
+    font-size: 3.2rem;
+    margin-bottom: 20px;
+  }
+
+  .final-answer {
+    font-size: 2.6rem;
+  }
+
+  .word-card {
+    padding: 45px 35px;
+  }
+
+  .game-header {
+    justify-content: space-between;
+    text-align: left;
+    margin-bottom: 35px;
+  }
+
+  .theme-badge,
+  .timer-display {
+    padding: 15px 25px;
+    font-size: 1.2rem;
+  }
+
+  /* 增强触控友好性 */
+  button {
+    min-height: 54px;
+    min-width: 54px;
+  }
+
+  .start-button {
+    padding: 20px 45px;
+    font-size: 1.4rem;
+  }
+
+  .hide-word-button {
+    padding: 15px 25px;
+    font-size: 1.1rem;
+    margin-top: 20px;
+  }
+
+  .end-early-button {
+    font-size: 1.1rem;
+    padding: 15px 30px;
+  }
+
+  .end-actions {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .restart-button,
+  .new-game-button {
+    padding: 18px 25px;
+    font-size: 1.2rem;
+  }
+
+  .theme-selector,
+  .player-input {
+    padding: 18px 25px;
+    font-size: 1.2rem;
+  }
+
+  .form-group label {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+  }
+}
+
+/* iPad mini (768px-1024px) 横屏优化 */
+@media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  body {
+    padding: 15px 30px;
+  }
+
+  .game-container {
+    max-width: 900px;
+  }
+
+  .setup-content,
+  .game-content,
+  .end-content {
+    padding: 25px 40px;
+  }
+
+  .game-title,
+  .end-title {
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+  }
+
+  .target-word {
+    font-size: 2.8rem;
+  }
+
+  .final-answer {
+    font-size: 2.2rem;
+  }
+
+  .word-card {
+    padding: 35px;
+  }
+
+  .game-header {
+    justify-content: space-between;
+    margin-bottom: 25px;
+  }
+
+  .theme-badge,
+  .timer-display {
+    padding: 12px 20px;
+    font-size: 1.1rem;
+  }
+
+  .end-actions {
+    flex-direction: row;
+    gap: 25px;
+  }
+
+  .restart-button,
+  .new-game-button {
+    flex: 1;
+    padding: 15px 20px;
+    font-size: 1.1rem;
+  }
+}
+
+/* iPad 标准版/Pro (1025px-1366px) 优化 */
+@media screen and (min-width: 1025px) and (max-width: 1366px) {
+  body {
+    padding: 25px;
+  }
+
+  .game-container {
+    max-width: 900px;
+  }
+
+  .setup-content,
+  .game-content,
+  .end-content {
+    padding: 40px 50px;
+    max-width: 750px;
+  }
+
+  .game-title,
+  .end-title {
+    font-size: 2.8rem;
+    margin-bottom: 40px;
+  }
+
+  .target-word {
+    font-size: 3.5rem;
+    margin-bottom: 25px;
+  }
+
+  .final-answer {
+    font-size: 2.8rem;
+  }
+
+  .word-card {
+    padding: 50px 40px;
+  }
+
+  .theme-badge,
+  .timer-display {
+    padding: 16px 28px;
+    font-size: 1.3rem;
+  }
+
+  /* 大屏iPad触控优化 */
+  button {
+    min-height: 56px;
+    min-width: 56px;
+  }
+
+  .start-button {
+    padding: 22px 50px;
+    font-size: 1.5rem;
+  }
+
+  .hide-word-button {
+    padding: 16px 28px;
+    font-size: 1.2rem;
+  }
+
+  .end-early-button {
+    padding: 16px 32px;
+    font-size: 1.2rem;
+  }
+
+  .end-actions {
+    flex-direction: row;
+    gap: 30px;
+  }
+
+  .restart-button,
+  .new-game-button {
+    flex: 1;
+    padding: 20px 25px;
+    font-size: 1.3rem;
+  }
+
+  .theme-selector,
+  .player-input {
+    padding: 20px 28px;
+    font-size: 1.3rem;
+  }
+
+  .form-group label {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+  }
+}
+
+/* 原有的小屏适配保留 (小于768px) */
+@media screen and (max-width: 767px) {
   body {
     padding: 15px;
   }
@@ -551,7 +791,7 @@ body {
   }
 }
 
-/* 小屏幕适配 */
+/* 手机小屏幕适配 (小于600px) */
 @media screen and (max-width: 600px) {
   .game-title,
   .end-title {
@@ -594,12 +834,83 @@ body {
   }
 }
 
-/* 触控友好设计 - 确保最小44px触控区域 */
+/* 触控友好设计 - 基础最小触控区域 */
 button,
 select,
 input[type="number"] {
   min-height: 44px;
   min-width: 44px;
+}
+
+/* iPad专门的触控增强 */
+@media screen and (min-width: 768px) and (max-width: 1366px) {
+  /* 确保所有iPad上的触控元素都足够大 */
+  button {
+    min-height: 50px;
+    min-width: 50px;
+    transition: all 0.2s ease;
+  }
+
+  button:hover {
+    transform: scale(1.05);
+  }
+
+  button:active {
+    transform: scale(0.98);
+  }
+
+  /* 优化游戏说明在iPad上的显示 */
+  .game-instructions {
+    padding: 25px;
+    margin-top: 30px;
+  }
+
+  .game-instructions p {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+  }
+
+  .game-instructions li {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
+
+  /* 改善词语长度显示 */
+  .word-length {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    margin-bottom: 15px;
+  }
+
+  /* 优化提示文本 */
+  .word-hint {
+    font-size: 1.3rem;
+    line-height: 1.4;
+    margin-top: 10px;
+  }
+
+  .time-hint {
+    font-size: 1rem;
+    margin-top: 8px;
+  }
+
+  /* 增强结束界面消息的可读性 */
+  .end-message p {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    line-height: 1.6;
+  }
+
+  .answer-label {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+  }
+
+  .final-theme {
+    font-size: 1.1rem;
+    margin-top: 10px;
+  }
 }
 
 /* 无障碍性增强 */
