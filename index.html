@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>你画我猜 - 趣味游戏</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="game-container">
+      <!-- 设置界面 -->
+      <div id="setup-screen" class="screen active">
+        <div class="setup-content">
+          <h1 class="game-title">🎨 你画我猜 🎯</h1>
+
+          <div class="setup-form">
+            <div class="form-group">
+              <label for="theme-select">选择主题：</label>
+              <select id="theme-select" class="theme-selector">
+                <option value="">请选择游戏主题</option>
+                <option value="成语">成语典故</option>
+                <option value="物品">日常物品</option>
+                <option value="动物">可爱动物</option>
+                <option value="动作">有趣动作</option>
+                <option value="地点">常见地点</option>
+                <option value="职业">各种职业</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="player-count">参与人数：</label>
+              <input
+                type="number"
+                id="player-count"
+                class="player-input"
+                min="4"
+                max="20"
+                value="6"
+                placeholder="输入人数"
+              />
+              <span class="time-hint">（每人限时2分钟，总时长自动计算）</span>
+            </div>
+
+            <button id="start-game" class="start-button">🚀 开始游戏</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 游戏界面 -->
+      <div id="game-screen" class="screen">
+        <div class="game-content">
+          <div class="game-header">
+            <div class="theme-badge">
+              主题：<span id="current-theme">成语</span>
+            </div>
+            <div class="timer-display">
+              <span class="timer-icon">⏰</span>
+              <span id="countdown-timer">08:00</span>
+            </div>
+          </div>
+
+          <div class="word-display">
+            <div class="word-card">
+              <div id="target-word" class="target-word">画蛇添足</div>
+              <div id="word-length" class="word-length">字数：4个字</div>
+              <div class="word-hint">第一位玩家开始绘画，传递给下一位</div>
+              <button id="hide-word" class="hide-word-button">
+                👁️ 第一位玩家看完后点击隐藏词语
+              </button>
+            </div>
+          </div>
+
+          <div class="game-instructions">
+            <p>🎯 游戏规则：</p>
+            <ul>
+              <li>参赛玩家面朝前方坐好，全程不能说话</li>
+              <li>单数位置的人负责画画，双数位置的人负责猜词</li>
+              <li>第一个人看词语开始画画，然后依次传递</li>
+              <li>每人限时2分钟，不能用文字、数字提示</li>
+              <li>最后一位玩家说出答案，看是否正确</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 结束界面 -->
+      <div id="end-screen" class="screen">
+        <div class="end-content">
+          <div class="end-animation">
+            <h2 class="end-title">⏰ 时间到！</h2>
+            <div class="answer-reveal">
+              <div class="answer-label">📝 正确答案是：</div>
+              <div id="final-answer" class="final-answer">画蛇添足</div>
+              <div id="final-theme" class="final-theme">主题：成语</div>
+            </div>
+            <div class="end-message">
+              <p>这一轮游戏结束了</p>
+              <p>希望大家玩得开心！</p>
+            </div>
+          </div>
+
+          <div class="end-actions">
+            <button id="restart-game" class="restart-button">
+              🎲 这个主题再来一个词语
+            </button>
+            <button id="new-game" class="new-game-button">
+              ⚙️ 重新设置主题和人数
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
